@@ -1,6 +1,6 @@
 {
-  "title": "Sector 07: Memory Matrix",
-  "author": "Ada Lovelace",
-  "color": "#e11d48",
-  "description": "Defragment the corrupted memory cluster by linking data blocks in correct numerical sequence!"
+  "title": "Defrag Grenade",
+  "author": "Andreas",
+  "color": "#008080",
+  "description": "Lob defrag grenades across a fragmented hard-drive landscape until every sector is sorted."
 }

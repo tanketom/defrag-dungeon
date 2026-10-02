@@ -3,28 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sector 07: Memory Matrix</title>
+  <title>Defrag Grenade</title>
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+  <div class="desktop">
+    <div class="window">
+      <div class="titlebar">
+        <span class="title-icon" aria-hidden="true"></span>
+        <span class="title-text">Defrag Grenade - Drive C:</span>
+        <div class="title-buttons" aria-hidden="true">
+          <span class="title-btn">_</span>
+          <span class="title-btn">&#9633;</span>
+          <span class="title-btn">&times;</span>
+        </div>
+      </div>
 
-  <div class="terminal-box">
-    <div class="terminal-header">
-      <div class="terminal-title">SECTOR 07: MEMORY MATRIX</div>
-      <div id="status-badge" class="status-badge">WAITING FOR HOST</div>
+      <div class="menubar" aria-hidden="true">
+        <span><u>F</u>ile</span>
+        <span><u>E</u>dit</span>
+        <span><u>V</u>iew</span>
+        <span><u>H</u>elp</span>
+      </div>
+
+      <div class="viewport sunken">
+        <canvas id="screen" width="640" height="360" tabindex="0" aria-label="Defrag Grenade playfield"></canvas>
+
+        <div id="dialog" class="dialog raised" role="dialog" aria-live="polite">
+          <div class="dialog-title"><span id="dialog-title">Defrag Grenade</span></div>
+          <div class="dialog-body">
+            <div id="dialog-icon" class="dialog-icon info" aria-hidden="true">i</div>
+            <div id="dialog-text" class="dialog-text"></div>
+          </div>
+          <div class="dialog-actions">
+            <button id="dialog-ok" class="btn" hidden>OK</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="progress-row">
+          <span id="pct-label" class="pct-label">0% defragmented</span>
+          <div class="progress sunken"><div id="progress-fill" class="progress-fill"></div></div>
+          <button id="fire-btn" class="btn" disabled>Fire!</button>
+          <button id="stop-btn" class="btn" disabled>Stop</button>
+        </div>
+        <div class="legend">
+          <span class="swatch c0"></span>System
+          <span class="swatch c1"></span>Programs
+          <span class="swatch c2"></span>Documents
+          <span class="swatch c3"></span>Games
+          <span class="legend-hint">Sort every column: System at the bottom, Games on top.</span>
+        </div>
+      </div>
+
+      <div class="statusbar">
+        <div id="st-grenades" class="status-cell sunken">Grenades: 12</div>
+        <div id="st-wind" class="status-cell sunken">Wind: calm</div>
+        <div id="st-aim" class="status-cell sunken">Angle 45&deg; &middot; Power 60%</div>
+        <div id="st-time" class="status-cell sunken">0s</div>
+      </div>
     </div>
 
-    <div id="instruction-text" class="instructions">
-      Waiting for host start signal to begin sector defragmentation...
-    </div>
-
-    <div class="grid" id="grid">
-      <!-- Generated dynamically -->
-    </div>
-
-    <div class="terminal-footer">
-      <span>Errors: <strong id="errors-count">0</strong></span>
-      <button id="give-up-btn" class="give-up-link">Abort Sector</button>
+    <div class="taskbar raised" aria-hidden="true">
+      <span class="start-btn raised"><span class="start-logo"></span><b>Start</b></span>
+      <span class="task-btn sunken">Defrag Grenade</span>
+      <span id="clock" class="clock sunken">12:00 PM</span>
     </div>
   </div>
 
