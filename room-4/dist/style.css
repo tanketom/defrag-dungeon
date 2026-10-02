@@ -1,0 +1,247 @@
+/* Jhave's Poetry Slam - mid-2000s cut-out cartoon look */
+
+:root {
+  --ink: #1c1208;
+  --paper: #fffbea;
+  --mustard: #f5a300;
+  --tomato: #e8452c;
+  --teal: #1aa39a;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #3a1d12;
+  font-family: "Comic Sans MS", "Chalkboard SE", "Marker Felt", "Comic Neue", cursive, sans-serif;
+  color: var(--ink);
+}
+
+#stage {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  display: block;
+}
+
+/* ---- Phrase strips ---- */
+.tray {
+  position: fixed;
+  top: 64px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(960px, calc(100vw - 24px));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 12px;
+  z-index: 5;
+}
+
+.strip {
+  font: inherit;
+  font-size: clamp(13px, 1.8vw, 18px);
+  font-weight: bold;
+  line-height: 1.2;
+  max-width: 300px;
+  padding: 8px 14px 9px;
+  color: var(--ink);
+  background: var(--paper);
+  border: 3px solid var(--ink);
+  border-radius: 4px 10px 6px 12px;
+  box-shadow: 4px 5px 0 var(--ink);
+  cursor: pointer;
+  transform: rotate(var(--rot, 0deg));
+  animation: wobble 2.4s ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+  transition: background 0.15s;
+}
+
+.strip:nth-child(3n+1) { background: #fff3b0; }
+.strip:nth-child(3n+2) { background: #d9f4ff; }
+.strip:nth-child(3n) { background: #ffe0e6; }
+
+.strip:hover:not(:disabled) {
+  background: var(--mustard);
+  animation-play-state: paused;
+  transform: rotate(0deg) scale(1.06);
+}
+
+.strip:focus-visible { outline: 3px dashed var(--teal); outline-offset: 3px; }
+
+.strip:disabled {
+  cursor: wait;
+  opacity: 0.55;
+  animation: none;
+}
+
+.strip.flying {
+  transition: transform 0.5s cubic-bezier(.5,-0.4,.7,1), opacity 0.5s;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.strip.enter { animation: pop-in 0.35s ease-out; }
+
+@keyframes wobble {
+  0%, 100% { transform: rotate(var(--rot, 0deg)) translateY(0); }
+  50% { transform: rotate(calc(var(--rot, 0deg) * -1)) translateY(-3px); }
+}
+
+@keyframes pop-in {
+  from { transform: scale(0.2) rotate(-20deg); opacity: 0; }
+  to { transform: scale(1) rotate(var(--rot, 0deg)); opacity: 1; }
+}
+
+/* ---- HUD ---- */
+.hud {
+  position: fixed;
+  top: 10px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.clock, .tally {
+  background: var(--paper);
+  border: 3px solid var(--ink);
+  border-radius: 12px;
+  box-shadow: 3px 4px 0 var(--ink);
+  padding: 4px 12px;
+  font-weight: bold;
+}
+
+.clock span { font-size: 22px; margin-right: 6px; }
+.clock small { font-size: 12px; }
+.tally { display: flex; gap: 14px; font-size: 18px; }
+
+/* ---- Title card ---- */
+.title-card {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: var(--mustard);
+  transition: transform 0.7s cubic-bezier(.6,-0.3,.7,1);
+}
+
+.title-card.gone { transform: translateY(-110%) rotate(-6deg); }
+
+.burst {
+  position: absolute;
+  inset: -50%;
+  background: repeating-conic-gradient(from 0deg, #ffd23f 0deg 10deg, #f5a300 10deg 20deg);
+  animation: spin 30s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.title-inner {
+  position: relative;
+  text-align: center;
+  padding: 24px 32px;
+}
+
+.title-inner h1 {
+  margin: 6px 0 10px;
+  font-family: "Cooper Black", "Cooper Std", "Bookman Old Style", "Arial Rounded MT Bold", Georgia, serif;
+  font-size: clamp(44px, 9vw, 104px);
+  line-height: 0.95;
+  color: var(--tomato);
+  -webkit-text-stroke: 3px var(--ink);
+  text-shadow: 6px 7px 0 var(--ink);
+  transform: rotate(-3deg);
+}
+
+.kicker, .tagline, .start-hint {
+  display: inline-block;
+  margin: 6px 0;
+  padding: 6px 14px;
+  background: var(--paper);
+  border: 3px solid var(--ink);
+  border-radius: 8px;
+  box-shadow: 4px 4px 0 var(--ink);
+  font-weight: bold;
+}
+
+.kicker { transform: rotate(2deg); font-size: 16px; }
+.tagline { transform: rotate(-1deg); font-size: clamp(14px, 2.2vw, 20px); }
+.start-hint { background: var(--teal); color: #fff; animation: blink 1.1s steps(2) infinite; }
+
+@keyframes blink { 50% { opacity: 0.55; } }
+
+/* ---- Finale ---- */
+.finale {
+  position: fixed;
+  inset: 0;
+  z-index: 15;
+  display: grid;
+  place-items: center;
+  background: rgba(28, 18, 8, 0.45);
+  padding: 16px;
+}
+
+.finale[hidden] { display: none; }
+
+.finale-card {
+  max-width: 560px;
+  max-height: 80vh;
+  overflow: auto;
+  background: var(--paper);
+  border: 4px solid var(--ink);
+  border-radius: 14px;
+  box-shadow: 8px 9px 0 var(--ink);
+  padding: 18px 26px 20px;
+  transform: rotate(-1.5deg);
+  animation: pop-in 0.5s ease-out;
+}
+
+.finale-card h2 {
+  margin: 0;
+  text-align: center;
+  font-family: "Cooper Black", "Cooper Std", "Bookman Old Style", Georgia, serif;
+  font-size: clamp(32px, 6vw, 54px);
+  color: var(--tomato);
+  -webkit-text-stroke: 2px var(--ink);
+  text-shadow: 4px 4px 0 var(--ink);
+}
+
+.finale-sub { text-align: center; font-weight: bold; margin: 6px 0 12px; }
+
+.poem {
+  margin: 0;
+  padding-left: 1.6em;
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+/* ---- Misc ---- */
+.credit {
+  position: fixed;
+  right: 10px;
+  bottom: 6px;
+  margin: 0;
+  font-size: 11px;
+  color: rgba(255, 245, 220, 0.75);
+  z-index: 6;
+}
+
+.credit a { color: inherit; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

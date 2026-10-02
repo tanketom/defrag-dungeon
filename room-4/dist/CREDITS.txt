@@ -1,0 +1,30 @@
+Jhave's Poetry Slam - credits
+=============================
+
+All poem lines in this room are quoted verbatim from the work of
+David Jhave Johnston, published at https://glia.ca/ under
+Creative Commons BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+Sources on glia.ca include:
+  - Homepage project titles and descriptions (https://glia.ca/)
+  - Messages to Humanity (https://glia.ca/2024/messages/)
+  - The Age of Murmuration (https://glia.ca/2025/nondual/)
+  - The Revolution Will Be Monetized (https://glia.ca/2025/self)
+  - BRAIN-KNOT-ALTAR (https://glia.ca/2025/brain-knot-altar/)
+  - ReRites: AI+Human Poetry (https://glia.ca/rerites/)
+  - (Un)(Very)Listenable Music (https://glia.ca/2025/listen/)
+  - 71 Days of music (https://glia.ca/2025/71days)
+  - Hallucinations are (almost) all you Need (https://glia.ca/2024/Hallucinations/)
+  - StimVerse / Sun Bleeds Orange (https://glia.ca/2025/sun-bleeds/)
+  - Artificial GENTLE Intelligence (https://glia.ca/2025/gentle/)
+
+Face photo (faces/jhave.jpg): cropped from a portrait of David Jhave Johnston,
+"Foto: Universitet i Bergen", as published at
+https://www.faktisk.no/artikkel/kan-vi-stole-pa-ki-detektorer/102202
+The photo is NOT covered by the CC licence below; all rights remain with its owner.
+Used here for a non-commercial workshop parody.
+
+Because of the ShareAlike term, this room's text and code (room-4/) are likewise
+shared under CC BY-NC-SA 4.0 (excluding the face photo). Non-commercial use only.
+
+Game code and cartoon art: Andreas (with Claude), Defrag Dungeon workshop 2026.
