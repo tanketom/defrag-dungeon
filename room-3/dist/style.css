@@ -1,0 +1,47 @@
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #05070a;
+  color: #d9d3c4;
+  font-family: "Palatino Linotype", Palatino, "Book Antiqua", Georgia, "Times New Roman", serif;
+}
+
+#forest {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  cursor: none;
+  touch-action: none;
+}
+
+/* Visually hidden mirror of what the crow says, for screen readers */
+.speech {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.leave-btn {
+  position: fixed;
+  right: 18px;
+  bottom: 14px;
+  background: none;
+  border: none;
+  color: rgba(217, 211, 196, 0.35);
+  font: italic 14px "Palatino Linotype", Palatino, Georgia, serif;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.leave-btn:hover,
+.leave-btn:focus-visible {
+  color: rgba(217, 211, 196, 0.8);
+  outline: none;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
