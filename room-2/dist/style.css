@@ -1,0 +1,35 @@
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #050520;
+  font-family: "Arial Black", Impact, "Helvetica Neue", sans-serif;
+}
+
+#stage {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  cursor: none;
+  touch-action: none;
+}
+
+.quit-btn {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  font: inherit;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: #fff;
+  background: #3a3a8a;
+  border: 3px solid #fff;
+  border-radius: 999px;
+  padding: 6px 16px;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: 0 3px 0 #111;
+}
+
+.quit-btn:hover { background: #e52521; }
+.quit-btn:focus-visible { outline: 3px solid #fcd116; outline-offset: 2px; }
